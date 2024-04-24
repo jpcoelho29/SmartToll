@@ -258,7 +258,7 @@ def estatisticas_de_custos_por_periodo(data):
     return resultado, date_range[0], date_range[1]
 
 
-def distribuicao_custos_dia_semana(df, date_filter):
+def distribuicao_custos_dia_semana(df, date_filter, method):
 
     df["ENTRADA_DATETIME"] = pd.to_datetime(df["ENTRADA_DATETIME"], errors="coerce")
 
@@ -292,7 +292,7 @@ def distribuicao_custos_dia_semana(df, date_filter):
     }
 
     # Contar quantas viagens ocorrem em cada dia da semana para cada matrícula
-    custos_por_matricula = df.groupby(["MATRICULA", "DIA_SEMANA"])["VALOR"].agg("sum")
+    custos_por_matricula = df.groupby(["MATRICULA", "DIA_SEMANA"])["VALOR"].agg(method)
 
     custos_por_matricula = custos_por_matricula.reset_index()
 

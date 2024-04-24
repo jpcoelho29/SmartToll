@@ -116,10 +116,10 @@ def heatmap_custos(dados):
 
     datas = filtrar_datas()
 
-    dados = distribuicao_custos_dia_semana(dados, datas)
+    dados = distribuicao_custos_dia_semana(dados, datas, "sum")
 
     pivot_data = dados.pivot_table(
-        index="MATRICULA", columns="DIA_SEMANA", values="VALOR", aggfunc="sum"
+        index="MATRICULA", columns="DIA_SEMANA", values="VALOR"
     )
 
     pivot_data = pivot_data.fillna(0)
@@ -152,10 +152,12 @@ def heatmap_custos_medios(dados):
 
     datas = filtrar_datas()
 
-    dados = distribuicao_custos_dia_semana(dados, datas)
+    dados = distribuicao_custos_dia_semana(dados, datas, "mean")
+
+    dados["VALOR"] = round(dados["VALOR"], 2)
 
     pivot_data = dados.pivot_table(
-        index="MATRICULA", columns="DIA_SEMANA", values="VALOR", aggfunc="mean"
+        index="MATRICULA", columns="DIA_SEMANA", values="VALOR"
     )
 
     pivot_data = pivot_data.fillna(0)
