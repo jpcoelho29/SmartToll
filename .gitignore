@@ -1,4 +1,4 @@
-_pycache
+_pycache__
 .venv
-dados/*
-extratos/*
+dados
+extratos

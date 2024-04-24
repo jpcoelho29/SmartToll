@@ -30,9 +30,21 @@ def dados_portagens():
 
 def main():
 
+    # criar pastas dados e extratos caso nao existam
+    if os.path.exists("dados") is False:
+        print("Criando pasta 'extratos'...")
+        os.mkdir("dados")
+    if os.path.exists("extratos") is False:
+        print("Criando pasta 'extratos'...")
+        os.mkdir("extratos")
+
     # carregar ficheiros
-    check_if_file_exists("dados/portagens.csv")
-    check_if_file_exists("dados/estacionamento.csv")
+    try:
+        check_if_file_exists("dados/portagens.csv")
+        check_if_file_exists("dados/estacionamento.csv")
+    except:
+        print('Adicionar extratos à pasta "extratos"')
+        return
 
     portagens_df = pd.read_csv(
         "dados/portagens.csv",

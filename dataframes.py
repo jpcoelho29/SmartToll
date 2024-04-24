@@ -14,6 +14,7 @@ def file_paths():
 
 
 def files_to_dataframe():
+
     df = pd.DataFrame()
     # ler ficheiros e juntar num único dataframe
     for path in file_paths():
@@ -127,10 +128,7 @@ def files_to_dataframe():
 def check_if_file_exists(filename):
     if not os.path.exists(filename):
         files_to_dataframe()
-        if not os.path.exists(filename):
-            print(f"Error: {filename} could not be created.")
-            return None
-    return filename
+    return
 
 
 if __name__ == "__main__":
