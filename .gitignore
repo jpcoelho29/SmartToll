@@ -1,0 +1,4 @@
+_pycache
+.venv
+dados/*
+extratos/*
