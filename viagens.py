@@ -314,7 +314,7 @@ def estatisticas_duracao_viagens(df, date_filter):
             "Mediana": [int(round(np.median(g.to_numpy()))) for _, g in grupo],
             "Moda": [
                 int(g.mode()[0]) if not g.mode().empty else np.nan for _, g in grupo
-            ],  # Corrigido para acessar corretamente
+            ],
             "Desvio_Padrão": [int(round(np.std(g.to_numpy()))) for _, g in grupo],
             "IQR": [
                 int(

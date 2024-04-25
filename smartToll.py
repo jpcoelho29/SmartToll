@@ -13,11 +13,12 @@ from utils import (
     filtrar_datas,
     escolher_frequencia,
     escolher_itinerario,
-    escolher_itinerario_,
 )
 from dataframes import check_if_file_exists, files_to_dataframe
+import warnings
 
 pd.options.mode.copy_on_write = True
+warnings.filterwarnings("ignore")
 
 
 def dados_portagens():
