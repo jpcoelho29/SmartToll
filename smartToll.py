@@ -39,14 +39,24 @@ def main():
         print("Criando pasta 'extratos'...")
         os.mkdir("extratos")
 
-    # check if exists any .csv file in the folder "extratos"
-    if len([name for name in os.listdir("extratos") if name.endswith(".csv")]) == 0:
+    # check if exists any .csv file in the folder "extratos" and subfolders
+    if (
+        len(
+            [
+                os.path.join(dirpath, file)
+                for dirpath, dirnames, files in os.walk("extratos")
+                for file in files
+                if file.endswith(".csv")
+            ]
+        )
+        == 0
+    ):
         print(
             '\n❗❗ Adicionar ficheiros de extratos "Via Verde" em formato .csv à pasta "extratos ❗❗"\n'
         )
         print("A aplicação será encerrada!")
         sleep(2)
-        return
+        exit()
 
     # carregar ficheiros
     check_if_file_exists("dados/portagens.csv")
