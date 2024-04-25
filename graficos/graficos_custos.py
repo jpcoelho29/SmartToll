@@ -1,9 +1,6 @@
-import pandas as pd
 import numpy as np
 import datetime as dt
-import networkx as nx
 import matplotlib.pyplot as plt
-import scipy.stats as stats
 import seaborn as sns
 from utils import escolha_matricula, filtrar_datas, escolher_itinerario_
 from funcionalidades import custos
@@ -236,3 +233,7 @@ def evolucao_custos_itinerario(dados):
     plt.show()
 
     return
+
+
+if __name__ == "__main__":
+    pass

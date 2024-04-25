@@ -220,3 +220,6 @@ dict_dia_semana = {
     5: "SEXTA",
     6: "SABADO",
 }
+
+if __name__ == "__main__":
+    pass

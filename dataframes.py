@@ -132,4 +132,4 @@ def check_if_file_exists(filename):
 
 
 if __name__ == "__main__":
-    import pandas as pd
+    pass

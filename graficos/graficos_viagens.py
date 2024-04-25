@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
-import scipy.stats as stats
 import seaborn as sns
 from utils import escolha_matricula
 
@@ -232,3 +231,7 @@ def viagens_por_mes_vv(df):
     plt.tight_layout()
     plt.show()
     return
+
+
+if __name__ == "__main__":
+    pass

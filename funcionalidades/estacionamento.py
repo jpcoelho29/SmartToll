@@ -104,3 +104,7 @@ def estacionamento_anual_operador(dados):
         erro = True
 
     return dados, ano, erro
+
+
+if __name__ == "__main__":
+    pass

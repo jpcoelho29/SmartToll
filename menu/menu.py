@@ -94,3 +94,7 @@ def submenu_graficos_estacionamento():
     print("2: Histograma de duração dos estacionamentos")
     print("3: Dispersão Duracao vs Custos")
     print("X: Voltar")
+
+
+if __name__ == "__main__":
+    pass

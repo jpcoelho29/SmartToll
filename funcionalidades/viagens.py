@@ -332,3 +332,7 @@ def estatisticas_duracao_viagens(df, date_filter):
     )
 
     return resultado
+
+
+if __name__ == "__main__":
+    pass
