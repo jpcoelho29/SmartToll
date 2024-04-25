@@ -1,13 +1,17 @@
 import os
 import pandas as pd
-import numpy as np
-import viagens
-import estacionamento
-import custos
-import graficos_viagens
-import graficos_custos
-import graficos_estacionamento
-import menu
+from funcionalidades import viagens, custos, estacionamento
+from graficos import graficos_viagens, graficos_custos, graficos_estacionamento
+
+# import viagens
+# import estacionamento
+# import custos
+# import graficos_viagens
+# import graficos_custos
+# import graficos_estacionamento
+# import menu.menu as menu
+from menu import menu
+
 from time import sleep
 from utils import (
     filtrar_datas,

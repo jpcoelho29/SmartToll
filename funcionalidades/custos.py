@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import datetime
-from viagens import identificar_distribuicao
+from funcionalidades import viagens
 from utils import dict_mes, escolha_matricula, filtrar_datas
 
 
@@ -250,7 +250,7 @@ def estatisticas_de_custos_por_periodo(data):
                 for _, g in data
             ],
             "Tipo de Distribuição": [
-                identificar_distribuicao(g.to_numpy()) for _, g in data
+                viagens.identificar_distribuicao(g.to_numpy()) for _, g in data
             ],
         }
     )

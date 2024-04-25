@@ -1,6 +1,4 @@
-import os
 import pandas as pd
-import numpy as np
 from utils import dados_matricula, dict_mes
 
 pd.set_option("display.max_rows", 150)

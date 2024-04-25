@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import scipy.stats as stats
 import seaborn as sns
 from utils import escolha_matricula, filtrar_datas, escolher_itinerario_
-from custos import distribuicao_custos_dia_semana
+from funcionalidades import custos
 
 
 def histograma_custo_viagens(dataframe):
@@ -116,7 +116,7 @@ def heatmap_custos(dados):
 
     datas = filtrar_datas()
 
-    dados = distribuicao_custos_dia_semana(dados, datas, "sum")
+    dados = custos.distribuicao_custos_dia_semana(dados, datas, "sum")
 
     pivot_data = dados.pivot_table(
         index="MATRICULA", columns="DIA_SEMANA", values="VALOR"
@@ -152,7 +152,7 @@ def heatmap_custos_medios(dados):
 
     datas = filtrar_datas()
 
-    dados = distribuicao_custos_dia_semana(dados, datas, "mean")
+    dados = custos.distribuicao_custos_dia_semana(dados, datas, "mean")
 
     dados["VALOR"] = round(dados["VALOR"], 2)
 
