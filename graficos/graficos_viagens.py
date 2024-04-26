@@ -40,9 +40,7 @@ def rede_itinerarios(df, date_range):
 
     # Desenhar o grafo
     plt.figure(figsize=(12, 12))
-    pos = nx.spring_layout(
-        G, seed=42
-    )  # Posicionamento dos nós com seed fixo para consistência
+    pos = nx.spring_layout(G, seed=42)
     nx.draw(
         G,
         pos,
@@ -82,7 +80,6 @@ def heatmap_distribuicao(df):
     return
 
 
-# Comentar...
 def histograma_duracao_viagens(df, date_range):
 
     # Converter colunas de data para o tipo apropriado
@@ -110,7 +107,7 @@ def histograma_duracao_viagens(df, date_range):
     # Calcular o número de bins usando a Regra de Sturges
     num_bins = int(1 + 3.322 * np.log10(len(df_filtrado["DURACAO_MINUTOS"])))
 
-    # Plotar o histograma das durações das viagens para a matrícula especificada
+    # Histograma das durações das viagens para a matrícula especificada
     plt.figure(figsize=(12, 6))
     sns.histplot(
         df_filtrado["DURACAO_MINUTOS"], bins=num_bins, kde=True, color="#0897B4"
@@ -124,7 +121,6 @@ def histograma_duracao_viagens(df, date_range):
     return
 
 
-# Comentar...
 def linha_tempo_itinerario(df, itinerario):
 
     # Filtrar o DataFrame pelo itinerário selecionado
@@ -218,7 +214,7 @@ def viagens_por_mes_vv(df):
         + viagens_por_mes["MES"].astype(int).apply(lambda x: f"{x:02}")
     )
 
-    # Plotar o gráfico de barras
+    # Gráfico de barras
     plt.figure(figsize=(14, 7))
     sns.barplot(
         data=viagens_por_mes, x="PERIODO", y="NUMERO_DE_VIAGENS", color="#4CABA6"

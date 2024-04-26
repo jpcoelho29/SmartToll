@@ -82,7 +82,7 @@ def submenu_graficos_custos():
     print("3: Mapa de calor de custos totais por matrícula")
     print("4: Mapa de calor de custos médios por matrícula")
     print("5: Boxplot de custos por matrícula")
-    print("6: Evolução de custos por itineráro")
+    print("6: Evolução de custos por itinerário")
     print("X: Voltar")
 
 

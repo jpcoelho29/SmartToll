@@ -2,14 +2,6 @@ import os
 import pandas as pd
 from funcionalidades import viagens, custos, estacionamento
 from graficos import graficos_viagens, graficos_custos, graficos_estacionamento
-
-# import viagens
-# import estacionamento
-# import custos
-# import graficos_viagens
-# import graficos_custos
-# import graficos_estacionamento
-# import menu.menu as menu
 from menu import menu
 
 from time import sleep
@@ -79,6 +71,7 @@ def main():
         parse_dates=["ENTRADA_DATETIME", "SAIDA_DATETIME"],
     )
 
+
     loadMenu = True
 
     while True:
@@ -134,7 +127,8 @@ def main():
         elif escolha.upper() == "X":
 
             # Caso o utilizador escolha esta opção, a aplicação irá encerrar.
-            print("\nA sair da aplicação Smart Toll")
+            print("\nA sair da aplicação Smart Toll...")
+            sleep(1)
             print("Desejamos uma Boa Viagem!\n")
             break
 

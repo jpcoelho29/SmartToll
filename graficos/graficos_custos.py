@@ -26,51 +26,13 @@ def histograma_custo_viagens(dataframe):
 
     # Histograma dos custos das viagens para a matrícula especificada
     plt.figure(figsize=(12, 6))
-    sns.histplot(df_filtrado["VALOR"], bins=num_bins, kde=True, color="blue")
+    sns.histplot(df_filtrado["VALOR"], bins=num_bins, kde=True, color="#0897B4")
     plt.title(f"Histograma de Custo das Viagens para a Matrícula {matricula}")
     plt.xlabel("Custo em Euros")
     plt.ylabel("Frequência")
     plt.tight_layout()  # Ajusta o layout para evitar sobreposição de etiquetas
     plt.show()
     return
-
-
-def grafico_barras_custo_mensal(dados):
-
-    matricula = escolha_matricula(dados)
-
-    # Filtrar o DataFrame pela matrícula selecionada
-    dados = dados[dados["MATRICULA"] == matricula]
-
-    try:
-        ano = int(input("Insira o ano (YYYY): "))
-        if ano > dt.datetime.today().year:
-            raise Exception("Ano inválido. Tente novamente.")
-
-        dados = dados[dados["ANO"] == ano]
-
-        dados = (
-            dados.groupby(["ITINERARIO_", "MATRICULA"])
-            .aggregate({"VALOR": "sum", "SERVICO": "count"})
-            .reset_index()
-            .sort_values(by=["VALOR"], ascending=[False])
-        )
-
-        dados["VALOR MEDIO (€)"] = round(dados["VALOR"] / dados["SERVICO"], 2)
-
-        dados.rename(
-            columns={
-                "VALOR": "VALOR (€)",
-                "SERVICO": "Nº VIAGENS",
-            },
-            inplace=True,
-        )
-
-    except:
-
-        print("Ano inválido. Tente novamente.")
-
-    return dados, ano
 
 
 # Análise de séries temporais de consumo de portagens
@@ -96,9 +58,11 @@ def consumo_portagens(df):
     # Agrupar dados por ano e mês e somar o consumo
     consumo_mensal = df_filtrado.groupby("ANO_MES")["VALOR"].sum().reset_index()
 
-    # Plotar o gráfico de linha
+    # Gráfico de linha
     plt.figure(figsize=(12, 6))
-    plt.plot(consumo_mensal["ANO_MES"], consumo_mensal["VALOR"], marker="o")
+    plt.plot(
+        consumo_mensal["ANO_MES"], consumo_mensal["VALOR"], marker="o", color="#0897B4"
+    )
     plt.title(f"Consumo Mensal de Portagens para a Matrícula {matricula}")
     plt.xlabel("Data")
     plt.ylabel("Consumo Total de Portagens (EUR)")
@@ -121,7 +85,7 @@ def heatmap_custos(dados):
 
     pivot_data = pivot_data.fillna(0)
 
-    # Define the desired order of weekdays
+    # Ordem dos dias da semana
     weekday_order = [
         "Segunda-feira",
         "Terça-feira",
@@ -130,9 +94,9 @@ def heatmap_custos(dados):
         "Sexta-feira",
         "Sábado",
         "Domingo",
-    ]  # Example order, adjust as needed
+    ]
 
-    # Reorder the columns of the pivot table
+    # Reordenar as colunas por dia da semana
     pivot_data = pivot_data.reindex(columns=weekday_order)
 
     # heatmap de custos por dia da semana
@@ -159,7 +123,7 @@ def heatmap_custos_medios(dados):
 
     pivot_data = pivot_data.fillna(0)
 
-    # Define the desired order of weekdays
+    # Ordem dos dias da semana
     weekday_order = [
         "Segunda-feira",
         "Terça-feira",
@@ -168,9 +132,8 @@ def heatmap_custos_medios(dados):
         "Sexta-feira",
         "Sábado",
         "Domingo",
-    ]  # Example order, adjust as needed
-
-    # Reorder the columns of the pivot table
+    ]
+    # Reordenar as colunas por dia da semana
     pivot_data = pivot_data.reindex(columns=weekday_order)
 
     # heatmap de custos por dia da semana
@@ -197,7 +160,7 @@ def boxplot_custos(dados):
 
     # Criar o boxplot
     plt.figure(figsize=(8, 6))
-    sns.boxplot(x="VALOR", data=df_filtrado)
+    sns.boxplot(x="VALOR", data=df_filtrado, color="#0897B4")
     plt.title(f"Boxplot de Custos para Matrícula: {matricula}")
     plt.xlabel("Custo (€)")
     plt.show()

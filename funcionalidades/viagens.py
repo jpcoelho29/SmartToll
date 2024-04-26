@@ -8,7 +8,6 @@ from datetime import datetime
 warnings.filterwarnings("ignore", category=UserWarning, module="scipy")
 
 
-# Comentar...
 def rotas(data, frequencia, date_range):
 
     # Converter colunas de data para o tipo apropriado
@@ -87,7 +86,6 @@ def percursos_por_intervalo(df, date_range):
     return percursos_filtrados
 
 
-# Comentar...
 def consumo_portagens_por_matricula(df, data_range):
 
     df["ENTRADA_DATETIME"] = pd.to_datetime(df["ENTRADA_DATETIME"], errors="coerce")
@@ -195,13 +193,12 @@ def distribuicao_viagens_dia_semana(df, date_filter):
         axis=1
     )
 
-    # Resetar o índice para tornar 'MATRICULA' uma coluna
+    # Fazer reset ao índice para tornar 'MATRICULA' uma coluna
     distribuicao_por_matricula.reset_index(inplace=True)
 
     return distribuicao_por_matricula
 
 
-# Comentar...
 def horas_de_pico(df, date_filter):
 
     # Assegurar que 'ENTRADA_DATETIME' e 'SAIDA_DATETIME' estão no formato datetime
@@ -275,7 +272,6 @@ def identificar_distribuicao(dados):
     return melhor_ajuste
 
 
-# Comentar...
 def estatisticas_duracao_viagens(df, date_filter):
 
     # Assegurar que 'ENTRADA_DATETIME' está no formato datetime

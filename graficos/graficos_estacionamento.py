@@ -24,7 +24,7 @@ def histograma_custo_estacionamento(dataframe):
 
     # Histograma dos custos das viagens para a matrícula especificada
     plt.figure(figsize=(12, 6))
-    sns.histplot(df_filtrado["VALOR"], bins=num_bins, kde=True, color="blue")
+    sns.histplot(df_filtrado["VALOR"], bins=num_bins, kde=True, color="#0897B4")
     plt.title(f"Histograma de Custo de Estacionamento para a Matrícula {matricula}")
     plt.xlabel("Custo em Euros")
     plt.ylabel("Frequência")
@@ -45,7 +45,7 @@ def histograma_duracao_estacionamento(dataframe):
         print("Não há dados para a matrícula escolhida.")
         return
 
-    # Ordenando o DataFrame df_filtrado por 'DURACAO_MINUTOS' em ordem decrescente
+    # Ordenar o DataFrame df_filtrado por 'DURACAO_MINUTOS' em ordem decrescente
     df_filtrado = df_filtrado.sort_values(by="DURACAO_MINUTOS", ascending=False)
 
     # Calcular o número de bins usando a Regra de Sturges
@@ -53,9 +53,11 @@ def histograma_duracao_estacionamento(dataframe):
 
     # Histograma dos custos das viagens para a matrícula especificada
     plt.figure(figsize=(12, 6))
-    sns.histplot(df_filtrado["VALOR"], bins=num_bins, kde=True, color="blue")
-    plt.title(f"Histograma de Custo de Estacionamento para a Matrícula {matricula}")
-    plt.xlabel("Custo em Euros")
+    sns.histplot(
+        df_filtrado["DURACAO_MINUTOS"], bins=num_bins, kde=True, color="#0897B4"
+    )
+    plt.title(f"Histograma de Duração de Estacionamento para a Matrícula {matricula}")
+    plt.xlabel("Duração em Minutos")
     plt.ylabel("Frequência")
     plt.tight_layout()  # Ajusta o layout para evitar sobreposição de etiquetas
     plt.show()
@@ -74,9 +76,9 @@ def dispersao_custo_duracao_estacionamento(dataframe):
         print("Não há dados para a matrícula escolhida.")
         return
 
-    # Plotar o gráfico de dispersão entre custo e duração
+    # Gráfico de dispersão entre custo e duração
     plt.figure(figsize=(12, 6))
-    sns.scatterplot(x="VALOR", y="DURACAO_MINUTOS", data=df_filtrado)
+    sns.scatterplot(x="VALOR", y="DURACAO_MINUTOS", data=df_filtrado, color="#0897B4")
     plt.title(f"Dispersão Duração vs Custo para a Matrícula {matricula}")
     plt.xlabel("Custo (€)")
     plt.ylabel("Duração em Minutos")
